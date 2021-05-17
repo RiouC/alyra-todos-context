@@ -1,7 +1,7 @@
-import { useEffect, useState, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import TodosList from "./TodosList";
 import AddTodoForm from "./AddTodoForm";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import { todosReducer } from "../reducers/todosReducer";
 import { TodosDispatchContext } from "../context/TodosDispatchContext";
 
@@ -44,36 +44,6 @@ const Todos = () => {
     useEffect(() => {
         window.localStorage.setItem("my-new-todos", JSON.stringify(state));
     }, [state]);
-
-    const addTodo = (text) => {
-        const newTodo = {
-            text,
-            isCompleted: false,
-            id: uuidv4()
-        };
-        // setTodos([...todos, newTodo]);
-        dispatch({type: "ADD", payload: newTodo});
-    };
-
-    const deleteTodo = (task) => {
-        // setTodos(todos.filter((el) => el.id !== task.id));
-        dispatch({type: "DELETE", payload: task});
-    };
-
-    const toggleCompleteTodo = (task) => {
-        // setTodos(
-        //     todos.map((el) => {
-        //         if (el.id === task.id) {
-        //             return {
-        //                 ...el,
-        //                 isCompleted: !el.isCompleted
-        //             };
-        //         }
-        //         return el;
-        //     })
-        // );
-        dispatch({type: "TOGGLE", payload: task});
-    };
 
     return (
         <main>

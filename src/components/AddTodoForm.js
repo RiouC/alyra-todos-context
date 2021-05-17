@@ -1,9 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
 import { useTodosDispatch } from "../context/TodosDispatchContext";
+import { useDarkMode } from "../context/ColorModeContext";
 
 const AddTodoForm = () => {
 
     const dispatch = useTodosDispatch();
+    const { modeClass } = useDarkMode();
     const addTodo = (text) => {
         const newTodo = {
             text,
@@ -24,10 +26,10 @@ const AddTodoForm = () => {
     return (
         <form onSubmit={handleFormSubmit}>
           <div className="input-group mb-2">
-            <label className="input-group-text" htmlFor="todo">
+            <label className={`input-group-text ${modeClass}`} htmlFor="todo">
               Ajouter une tâche
             </label>
-            <input className="form-control" id="todo" required />
+            <input className={`form-control ${modeClass}`} id="todo" required />
           </div>
           <button type="submit" className="btn btn-primary">
             allons-y !

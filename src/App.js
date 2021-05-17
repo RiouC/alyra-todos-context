@@ -1,5 +1,5 @@
-import Todos from "./components/Todos"
-import ColorModeContainer from "./components/ColorModeContainer"
+import Todos from "./components/Todos";
+import ColorModeContainer from "./components/ColorModeContainer";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <Todos />
       </div>
     </ColorModeContainer>
-  )
+  );
 }
 
-export default App
+export default App;
